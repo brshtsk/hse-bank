@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35806.99
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HseBank", "HseBank\HseBank.csproj", "{37985271-0556-4CAB-A197-C75A001E1B6A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HseBank.Tests", "HseBank.Tests\HseBank.Tests.csproj", "{FAC9E6BC-5F6F-4BA6-B1C6-23EF0DCEC321}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{37985271-0556-4CAB-A197-C75A001E1B6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37985271-0556-4CAB-A197-C75A001E1B6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37985271-0556-4CAB-A197-C75A001E1B6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37985271-0556-4CAB-A197-C75A001E1B6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAC9E6BC-5F6F-4BA6-B1C6-23EF0DCEC321}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAC9E6BC-5F6F-4BA6-B1C6-23EF0DCEC321}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAC9E6BC-5F6F-4BA6-B1C6-23EF0DCEC321}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAC9E6BC-5F6F-4BA6-B1C6-23EF0DCEC321}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {19772D4D-FB80-4CC7-951C-F94309ECED2A}
+	EndGlobalSection
+EndGlobal
