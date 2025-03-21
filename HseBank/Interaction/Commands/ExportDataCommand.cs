@@ -1,9 +1,9 @@
 ﻿namespace HseBank.Interaction.Commands;
 
 /// <summary>
-/// Команда импорта данных.
+/// Команда для экспорта данных.
 /// </summary>
-public class ImportDataCommand : ICommand
+public class ExportDataCommand : ICommand
 {
     public void Execute()
     {
