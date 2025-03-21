@@ -15,12 +15,13 @@ public class DepositCommand : ICommand
     {
         _facade = facade;
         _targetId = targetId;
+        _amount = amount;
     }
     
     public void Execute()
     {
-        int res = _facade.Deposit(_targetId, _amount);
-        if (res != -1)
+        float res = _facade.Deposit(_targetId, _amount);
+        if (res >= 0)
         {
             Console.WriteLine($"Счет {_targetId} успешно пополнен на сумму {_amount}");
         }

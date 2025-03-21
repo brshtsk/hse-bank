@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using HseBank.Domain.Interfaces;
+using Microsoft.Extensions.Logging;
 using HseBank.Services.Interfaces;
 
 namespace HseBank.Services.Facades;
@@ -23,18 +24,19 @@ public class BankAccountFacade
         }
         catch (ArgumentException e)
         {
-            _logger.LogWarning(e, "Ошибка при создании счета {Name} с начальным балансом {InitialBalance}. Сообщение об ошибке: {Message}",
+            _logger.LogWarning(e,
+                "Ошибка при создании счета {Name} с начальным балансом {InitialBalance}. Сообщение об ошибке: {Message}",
                 name, initialBalance, e.Message);
             return -1;
         }
     }
 
-    public int Deposit(int accountId, float amount)
+    public float Deposit(int accountId, float amount)
     {
         try
         {
             _bankAccountService.Deposit(accountId, amount);
-            return 0;
+            return amount;
         }
         catch (ArgumentException e)
         {
@@ -62,5 +64,10 @@ public class BankAccountFacade
                 accountId, amount);
             return -1;
         }
+    }
+
+    public IBankAccount GetAccount(int id)
+    {
+        return _bankAccountService.GetAccount(id);
     }
 }

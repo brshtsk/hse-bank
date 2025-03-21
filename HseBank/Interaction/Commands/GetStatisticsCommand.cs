@@ -28,7 +28,7 @@ public class GetStatisticsCommand : ICommand
         var expenses = _analyticsFacade.GetExpensesByCategories();
         foreach (var expense in expenses)
         {
-            Console.WriteLine("{0}: {1}\u20bd", expense.Key, expense.Value);
+            Console.WriteLine("{0}: {1} руб", expense.Key, expense.Value);
         }
 
         Console.WriteLine();

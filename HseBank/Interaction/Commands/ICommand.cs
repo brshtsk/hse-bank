@@ -10,10 +10,10 @@ public enum CommandType
     MakeOperation,
     GetNetAmount,
     GetStatistics,
-    ImportData,
     ExportData,
     AddCategory,
     ShowCategories,
+    GetAccountInfo,
 }
 
 /// <summary>

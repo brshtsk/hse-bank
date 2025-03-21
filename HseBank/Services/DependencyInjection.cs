@@ -6,6 +6,7 @@ using HseBank.Infrastructure.Data;
 using HseBank.Services.Facades;
 using HseBank.Services.Implementations;
 using HseBank.Services.Interfaces;
+using HseBank.Interaction;
 
 namespace HseBank;
 
@@ -56,6 +57,12 @@ public static class DependencyInjection
         services.AddTransient<CategoryFacade>();
         services.AddTransient<OperationFacade>();
         services.AddTransient<AnalyticsFacade>();
+        
+        // 6) Регистрация UserInterface.
+        services.AddTransient<UserInterface>();
+        
+        // 7) Регистрация сервиса для работы с консолью.
+        services.AddTransient<ConsoleApp>();
 
         // Собираем.
         return services.BuildServiceProvider();

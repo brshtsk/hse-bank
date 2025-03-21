@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HseBank")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e4748f95d4b6e3a6e7c314cbdd02db325b3c164f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8b407dc5a9c58d14d849e2060ba64b941bd9f69a")]
 [assembly: System.Reflection.AssemblyProductAttribute("HseBank")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HseBank")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
