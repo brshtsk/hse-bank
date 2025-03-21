@@ -15,7 +15,7 @@ public class CategoryFacade
         _logger = logger;
     }
 
-    public int CreateCategory(CategoryType type, string name)
+    public int CreateCategory(OperationType type, string name)
     {
         var category = _categoryService.CreateCategory(type, name);
         return category.Id;

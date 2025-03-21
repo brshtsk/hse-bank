@@ -15,7 +15,7 @@ public class CategoryService : ICategoryService
         _categoryRepository = categoryRepository;
     }
 
-    public ICategory CreateCategory(CategoryType type, string name)
+    public ICategory CreateCategory(OperationType type, string name)
     {
         var category = _domainFactory.CreateCategory(type, name);
         _categoryRepository.Add(category);

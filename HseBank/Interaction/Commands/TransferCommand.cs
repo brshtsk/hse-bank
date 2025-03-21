@@ -28,7 +28,7 @@ public class TransferCommand : ICommand
             int putMoney = _facade.Deposit(_targetId, _amount);
             if (putMoney != -1)
             {
-                Console.WriteLine($"Со счета {_sourceId} на счет {_targetId} успешно переведено {_amount}\u20bd");
+                Console.WriteLine($"Со счета {_sourceId} на счет {_targetId} успешно переведено {_amount} руб");
             }
             else
             {

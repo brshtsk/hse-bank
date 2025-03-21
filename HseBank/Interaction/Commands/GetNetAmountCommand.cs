@@ -31,6 +31,6 @@ public class GetNetAmountCommand : ICommand
         }
 
         Console.WriteLine(
-            $"Сумма операций по счету {_accountId} с {_fromDate:dd.MM.yyyy} по {_toDate:dd.MM.yyyy}: {netAmount}\u20bd");
+            $"Сумма операций по счету {_accountId} с {_fromDate:dd.MM.yyyy} по {_toDate:dd.MM.yyyy}: {netAmount} руб");
     }
 }

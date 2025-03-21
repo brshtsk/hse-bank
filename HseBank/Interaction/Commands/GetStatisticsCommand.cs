@@ -37,7 +37,7 @@ public class GetStatisticsCommand : ICommand
         var incomes = _analyticsFacade.GetIncomesByCategories();
         foreach (var income in incomes)
         {
-            Console.WriteLine("{0}: {1}\u20bd", income.Key, income.Value);
+            Console.WriteLine("{0}: {1} руб", income.Key, income.Value);
         }
     }
 }

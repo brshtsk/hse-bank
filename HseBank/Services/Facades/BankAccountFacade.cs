@@ -52,14 +52,14 @@ public class BankAccountFacade
         }
         catch (ArgumentException e)
         {
-            _logger.LogWarning(e, "Ошибка при списании со счета {AccountId} на сумму {Amount}", accountId, amount);
+            _logger.LogWarning(e, "Ошибка при списании со счета {AccountId} на сумму {Amount}.", accountId, amount);
             return -1;
         }
         catch (InvalidOperationException e)
         {
             _logger.LogWarning(e,
-                "Ошибка при списании со счета {AccountId} на сумму {Amount}. Сообщение об ошибке: {Message}",
-                accountId, amount, e.Message);
+                "Ошибка при списании со счета {AccountId} на сумму {Amount}.",
+                accountId, amount);
             return -1;
         }
     }

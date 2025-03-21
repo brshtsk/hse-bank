@@ -8,19 +8,35 @@ public class OperationFacade
 {
     private readonly IOperationService _operationService;
     private readonly IBankAccountService _bankAccountService;
+    private readonly ICategoryService _categoryService;
     private readonly ILogger<OperationFacade> _logger;
 
     public OperationFacade(IOperationService operationService, IBankAccountService bankAccountService,
-        ILogger<OperationFacade> logger)
+        ICategoryService categoryService, ILogger<OperationFacade> logger)
     {
         _operationService = operationService;
         _bankAccountService = bankAccountService;
+        _categoryService = categoryService;
         _logger = logger;
     }
 
     public int CreateOperation(OperationType type, int bankAccountId, float amount, DateTime date, int categoryId,
         string description = "")
     {
+        // Проверка наличия такой категории
+        if (_categoryService.GetCategory(categoryId) == null)
+        {
+            _logger.LogWarning("Категория {CategoryId} не найдена", categoryId);
+            return -1;
+        }
+
+        // Проверка соответствия типа операции
+        if (_categoryService.GetCategory(categoryId).Type != type)
+        {
+            _logger.LogWarning("Категория {CategoryId} не соответствует типу операции {Type}", categoryId, type);
+            return -1;
+        }
+
         // Создание операции
         var operation = _operationService.CreateOperation(type, bankAccountId, amount, date, categoryId, description);
 

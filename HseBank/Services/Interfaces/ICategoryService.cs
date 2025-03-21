@@ -4,7 +4,7 @@ namespace HseBank.Services.Interfaces;
 
 public interface ICategoryService
 {
-    ICategory CreateCategory(CategoryType type, string name);
+    ICategory CreateCategory(OperationType type, string name);
     ICategory GetCategory(int id);
     IEnumerable<ICategory> GetAllCategories();
     void UpdateCategory(ICategory category);

@@ -21,7 +21,7 @@ public class DomainFactory : IDomainFactory
         return new BankAccount(name, initialBalance);
     }
 
-    public ICategory CreateCategory(CategoryType type, string name)
+    public ICategory CreateCategory(OperationType type, string name)
     {
         if (string.IsNullOrWhiteSpace(name))
             throw new ArgumentException("Название категории не может быть пустым.");

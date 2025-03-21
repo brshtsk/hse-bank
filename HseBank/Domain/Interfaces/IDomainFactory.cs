@@ -7,7 +7,7 @@
 public interface IDomainFactory
 {
     IBankAccount CreateBankAccount(string name, float initialBalance = 0);
-    ICategory CreateCategory(CategoryType type, string name);
+    ICategory CreateCategory(OperationType type, string name);
 
     IOperation CreateOperation(OperationType type, int bankAccountId, float amount, DateTime date, int categoryId,
         string description = "");

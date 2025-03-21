@@ -11,7 +11,9 @@ public enum CommandType
     GetNetAmount,
     GetStatistics,
     ImportData,
-    ExportData
+    ExportData,
+    AddCategory,
+    ShowCategories,
 }
 
 /// <summary>
