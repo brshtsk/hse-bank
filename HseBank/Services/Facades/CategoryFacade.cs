@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using HseBank.Domain.Interfaces;
 using HseBank.Services.Interfaces;
+using HseBank.Infrastructure.Export;
 
 namespace HseBank.Services.Facades;
 
@@ -42,5 +43,24 @@ public class CategoryFacade
     public void DeleteCategory(int id)
     {
         _categoryService.DeleteCategory(id);
+    }
+
+    public object GetData()
+    {
+        try
+        {
+            IEnumerable<ICategory> categories = _categoryService.GetAllCategories();
+            return categories;
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, "Error retrieving bank account data.");
+            return null;
+        }
+    }
+    
+    public void Accept(IVisitor visitor)
+    {
+        visitor.Visit(this);
     }
 }

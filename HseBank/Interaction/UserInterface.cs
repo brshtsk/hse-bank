@@ -1,6 +1,7 @@
 ﻿using HseBank.Services.Facades;
 using HseBank.Interaction.Commands;
 using HseBank.Domain.Interfaces;
+using HseBank.Infrastructure.Export;
 
 namespace HseBank.Interaction;
 
@@ -45,6 +46,7 @@ public class UserInterface
             Console.WriteLine("7. Совершить операцию (доход/расход)");
             Console.WriteLine("8. Показать статистику по банку");
             Console.WriteLine("9. Показать информацию о счёте");
+            Console.WriteLine("10. Выгрузить в JSON");
             Console.WriteLine("0. Выход");
 
             Console.Write("Выберите пункт меню: ");
@@ -78,6 +80,9 @@ public class UserInterface
                     break;
                 case "9":
                     ShowAccountInfoFlow();
+                    break;
+                case "10":
+                    ExportJsonFlow();
                     break;
                 case "0":
                     Console.WriteLine("Выход из приложения...");
@@ -220,6 +225,30 @@ public class UserInterface
         var command = new GetAccountInfoCommand(_bankAccountFacade, accountId);
         var timedCommand = new CommandTimerDecorator(command);
         timedCommand.Execute();
+    }
+    
+    private void ExportJsonFlow()
+    {
+        var exporter = new JsonDataExporter();
+        var visitor = new Visitor(exporter);
+        
+        Console.Write("Что вы хотите экспортировать? (1 - счета, 2 - операции, 3 - категории): ");
+        var typeInput = Console.ReadLine();
+        switch (typeInput)
+        {
+            case "1":
+                _bankAccountFacade.Accept(visitor);
+                break;
+            case "2":
+                _operationFacade.Accept(visitor);
+                break;
+            case "3":
+                _categoryFacade.Accept(visitor);
+                break;
+            default:
+                Console.WriteLine("Неизвестный тип данных. Отмена.");
+                break;
+        }
     }
 
     #endregion

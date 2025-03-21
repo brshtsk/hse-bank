@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using HseBank.Domain.Interfaces;
 using HseBank.Services.Interfaces;
+using HseBank.Infrastructure.Export;
 
 namespace HseBank.Services.Facades;
 
@@ -86,5 +87,24 @@ public class OperationFacade
     public IEnumerable<IOperation> GetOperationsByAccount(int bankAccountId)
     {
         return _operationService.GetOperationsByAccount(bankAccountId);
+    }
+
+    public object GetData()
+    {
+        try
+        {
+            IEnumerable<IOperation> operations = _operationService.GetOperations();
+            return operations;
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, "Error retrieving bank account data.");
+            return null;
+        }
+    }
+    
+    public void Accept(IVisitor visitor)
+    {
+        visitor.Visit(this);
     }
 }
